@@ -1,5 +1,6 @@
+import os
 from flask import Flask
-from flask import render_template
+from flask import render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -94,6 +95,25 @@ def table(sex, age):
         poster = "young.png"
 
     return render_template('table.html', wall_color=wall_color, poster=poster)
+
+
+@app.route('/galery', methods=['POST', 'GET'])
+def galery():
+    imgdir = '/'.join([app.static_folder, 'img', 'galery'])
+    if request.method == 'GET':
+        images = os.listdir(imgdir)
+        # C:\Users\Nat\Documents\GitHub\flask-wtf\static/img/galery
+        return render_template('galery.html', images=images)
+
+    elif request.method == 'POST':
+
+        f = request.files.get('file')
+
+        if not f:
+            return "Не выбран файл"
+
+        f.save('/'.join([imgdir, f.filename]))
+        return redirect('/galery')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="center">Пейзажи Марса</h2>
+<div id="carousel-mars" class="carousel slide my-3" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        {% for image in images %}
+            <button type="button" data-bs-target="#carousel-mars" data-bs-slide-to="{{ loop.index0 }}" {% if loop.first %} class="active" aria-current="true" {% endif %} aria-label="{{ image }}"></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% for image in images %}
+            <div class="carousel-item {% if loop.first %} active {% endif %}">
+                <img class="d-block mx-auto" style="max-width: 350px; max-height: 350px;" src="{{url_for('static', filename='img/galery/'+image)}}" alt="{{ image }}">
+            </div>
+        {% endfor %}
+    </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-mars" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel-mars" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="my-3 mx-auto" style="max-width: 350px">
+    <form class="p-3 bg-light border border-primary rounded-2" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="photo" class="center d-block pb-3">Добавить картинку</label>
+            <input type="file" class="form-control-file" id="photo" name="file">
+        </div>
+        <div class="form-group pt-3 center">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
