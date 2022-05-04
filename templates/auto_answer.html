@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="padding-left:40px">
+    <p>Фамилия: {{fields['surname']}}</p>
+    <p>Имя: {{fields['name']}}</p>
+    <p>Образование: {{fields['education']}}</p>
+    <p>Профессия: {{fields['profession']}}</p>
+    <p>Пол: {{fields['sex']}}</p>
+    <p>Мотивация: {{fields['motivation']}}</p>
+    <p>Готовы остаться на Марсе? {{fields['ready']}}</p>
+</div>
+{% endblock %}

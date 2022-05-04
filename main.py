@@ -47,5 +47,21 @@ def list_prof(list):
     ], list=list)
 
 
+@app.route('/answer')
+@app.route('/auto_answer')
+def auto_answer():
+    fields = {
+        'title': 'Анкета',
+        'surname': 'Wanty',
+        'name': 'Mark',
+        'education': 'выше среднего',
+        'profession': 'штурман марсохода',
+        'sex': 'male',
+        'motivation': 'Всегда мечтал застрять на Марсе!',
+        'ready': 'True'
+    }
+    return render_template('auto_answer.html', fields=fields)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
