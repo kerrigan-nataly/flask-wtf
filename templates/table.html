@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="center">Оформление каюты</h2>
+    <table>
+        <tr>
+            <td class="gray">Цвет стен</td>
+            <td class="gray">Постер</td>
+        </tr>
+        <tr>
+            <td class="{{ wall_color }}"></td>
+            <td><img class="poster" src="{{ url_for('static', filename='/img/'+poster) }}"></td>
+        </tr>
+    </table>
+{% endblock %}

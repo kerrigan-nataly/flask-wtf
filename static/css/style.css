@@ -13,3 +13,19 @@ height: 50px;
 .center{
 text-align: center;
 }
+.poster{
+width:350px;
+}
+.red{
+width: 350px;
+background-color: #ff0000;
+}
+
+.blue{
+width: 350px;
+background-color: #0000ff;
+}
+.gray{
+text-align: center;
+background-color: #aaaaaa;
+}

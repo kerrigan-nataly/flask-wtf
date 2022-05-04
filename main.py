@@ -81,5 +81,20 @@ def distribution():
     return render_template('distribution.html', astronauts=astronauts)
 
 
+@app.route('/table/<sex>/<int:age>')
+def table(sex, age):
+    if sex == 'male':
+        wall_color = 'red'
+    else:
+        wall_color = 'blue'
+
+    if age >= 21:
+        poster = "old.jpg"
+    else:
+        poster = "young.png"
+
+    return render_template('table.html', wall_color=wall_color, poster=poster)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
