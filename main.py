@@ -63,5 +63,9 @@ def auto_answer():
     return render_template('auto_answer.html', fields=fields)
 
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')

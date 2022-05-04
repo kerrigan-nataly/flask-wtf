@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div><div class="emblema d-inline-block"></div><h1 class="d-inline-block">Аварийный доступ</h1></div>
+<form action="" method="post" novalidate>
+    <p>
+        <label for="astronaut-id">id астронавта</label>
+        <input class="form-control" type="text" id="astronaut-id">
+    </p>
+
+    <p>
+        <label for="astronaut-pwd">Пароль астронавта</label>
+        <input class="form-control" type="password" id="astronaut-pwd">
+    </p>
+
+    <p>
+        <label for="captain-id">id капитана</label>
+        <input class="form-control" type="text" id="captain-id">
+    </p>
+
+    <p>
+        <label for="captain-pwd">Пароль капитана</label>
+        <input class="form-control" type="password" id="captain-pwd">
+    </p>
+
+    <p><input type="submit" class="btn btn-primary" value="Далее"></p>
+</form>
+{% endblock %}
