@@ -10,5 +10,20 @@ def index(title):
     return render_template('base.html', title=title)
 
 
+@app.route('/training/<prof>')
+def training(prof):
+    if prof in ['инженер', 'строитель']:
+        sim = "Инженерные тренажеры"
+        img = 'ship.jpg'
+    elif prof in ['врач', 'гляциолог', 'астрогеолог', 'климатолог', 'экзобиолог']:
+        sim = "Научные симуляторы"
+        img = 'ship-s.jpg'
+    else:
+        img = "ship-wtf.jpg"
+        sim = "Вы кто? Пройдите в криокамеру"
+
+    return render_template('training.html', img_name=img, sim=sim)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
