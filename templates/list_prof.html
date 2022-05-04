@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h3>Список профессий</h3>
+    {% if list == 'ol' %}
+        <ol>
+            {% for prof in profs %}
+            <li>{{ prof }}</li>
+            {% endfor %}
+        </ol>
+    {% elif list == 'ul' %}
+        <ul>
+            {% for prof in profs %}
+            <li>{{ prof }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-danger">
+            <strong>Не верный прараметр</strong>
+        </div>
+    {% endif %}
+
+{% endblock %}
