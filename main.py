@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, json
 
 app = Flask(__name__)
 
@@ -114,6 +114,14 @@ def galery():
 
         f.save('/'.join([imgdir, f.filename]))
         return redirect('/galery')
+
+
+@app.route('/member')
+def member():
+    with open("./templates/members.json", "rt", encoding="utf8") as f:
+        members = json.loads(f.read())
+
+    return render_template('member.html', members=members)
 
 
 if __name__ == '__main__':

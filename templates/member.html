@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% set astro, pic, profs = members | random %}
+<div class="center">
+    <div class="card" style="width: 18rem;">
+        <div class="center">
+            <img src="{{ url_for('static', filename='/img/members/' + pic) }}" alt="{{ astro }}">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ astro }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for prof in profs|sort %}
+            <li class="list-group-item">{{ prof }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
